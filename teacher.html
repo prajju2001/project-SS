@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teacher Portal</title>
+</head>
+<body>
+    <h1>Welcome, Teacher</h1>
+    <button onclick="uploadLecture()">Upload Lecture</button>
+
+    <script>
+        function uploadLecture() {
+            fetch('/teacher/1/add-material', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ materialType: 'lecture', content: 'Lecture Content' })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Lecture uploaded');
+            });
+        }
+    </script>
+</body>
+</html>

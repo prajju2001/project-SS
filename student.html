@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Portal</title>
+</head>
+<body>
+    <h1>Welcome, Student</h1>
+    <button onclick="getTimetable()">View Timetable</button>
+    <div id="timetable"></div>
+
+    <script>
+        function getTimetable() {
+            fetch('/student/1/timetable')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('timetable').innerHTML = JSON.stringify(data);
+                });
+        }
+    </script>
+</body>
+</html>
